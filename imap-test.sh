@@ -47,9 +47,8 @@ while [ $# -gt 0 ]; do
 		auth)
 			AUTH_ON=$1
 			AUTH_USER=$2
-			echo -n "Enter IMAP-Password: "
-			read AUTH_PASS
-			shift 2
+			AUTH_PASS=$3
+			shift 3
 			;;
 
 		# specific parameters
@@ -83,7 +82,7 @@ echo "Connection: $CONN_TYPE"
 if [[ "$AUTH_ON" == "auth" ]]; then
 	echo "    Auth: YES"
 	echo "    Auth-User: $AUTH_USER"
-	echo "    Auth-Pass: *****"
+	echo "    Auth-Pass: $ANTH_PASS"
 	AUTH_EXT="_auth"
 else
 	echo "    Auth: NO"
