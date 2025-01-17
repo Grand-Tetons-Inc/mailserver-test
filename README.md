@@ -1,5 +1,7 @@
 ## Mailserver-Test
 
+This branch is modified for use in account setup testing and is inappropriate for use in a shared environment. Full account details are given on the command line including Passwords.
+
 Mailserver-Test is a collection of shell scripts created to test a mailserver's setup. It includes a script to test an SMTP server and a script to test an IMAP server.
 
 The Mailserver-Test scripts will connect to the mail-server, send their commands and get the response. The answers can then be compared to what you would expect based on your server configuration. The list of functions that can be checked includes:
