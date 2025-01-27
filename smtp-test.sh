@@ -38,7 +38,7 @@ while [ $# -gt 0 ]; do
 			shift
 			;;
 		-v|--version)
-			echo 
+			echo "Modified 2025 by James Rogers to allow unsecure entry of password"
 			echo "Copyright (c) 2013 Tinned-Software (Gerhard Steinbeis)"
 			echo "License GNUv3: GNU General Public License version 3 <http://opensource.org/licenses/GPL-3.0>"
 			echo 
@@ -51,9 +51,8 @@ while [ $# -gt 0 ]; do
 		auth)
 			AUTH_ON=$1
 			AUTH_USER=$2
-			echo -n "Enter SMTP-Password: "
-			read AUTH_PASS
-			shift 2
+			AUTH_PASS=$3
+			shift 3
 			;;
 
 		# specific parameters
@@ -137,7 +136,7 @@ if [ "$HELP" -eq "1" ]; then
 	echo "the specified sender and recipient. The raw communication is "
 	echo "afterwards shown and available in the log."
 	echo 
-	echo "Usage: `basename $0` [-hv] [--port 25] [auth username] [ssl] [--ssl-options \"-ssl2 -cipher aNULL\"] smtp.domain.com sernder@domain.com recipient@example.com"
+	echo "Usage: `basename $0` [-hv] [--port 25] [auth username password] [ssl] [--ssl-options \"-ssl2 -cipher aNULL\"] smtp.domain.com sernder@domain.com recipient@example.com"
   	echo "  -h  --help         print this usage and exit"
 	echo "  -v  --version      print version information and exit"
 	echo "      --port         Specify the port used to connect other then the default port 25"

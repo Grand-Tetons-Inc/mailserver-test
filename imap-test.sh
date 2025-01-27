@@ -35,6 +35,7 @@ while [ $# -gt 0 ]; do
 			;;
 		-v|--version)
 			echo 
+			echo "Modified 2025 by James Rogers to allow unsecure entry of password"
 			echo "Copyright (c) 2013 Tinned-Software (Gerhard Steinbeis)"
 			echo "License GNUv3: GNU General Public License version 3 <http://opensource.org/licenses/GPL-3.0>"
 			echo 
@@ -47,9 +48,8 @@ while [ $# -gt 0 ]; do
 		auth)
 			AUTH_ON=$1
 			AUTH_USER=$2
-			echo -n "Enter IMAP-Password: "
-			read AUTH_PASS
-			shift 2
+			AUTH_PASS=$3
+			shift 3
 			;;
 
 		# specific parameters
